@@ -1,0 +1,19 @@
+{
+  "name": "zombata/core",
+  "description": "core functionality",
+  "authors": [
+  {
+    "name": "Zombata",
+    "email": "dev@zombata.in"
+  }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Zombata\\Core\\ZombataCoreServiceProvider"
+      ]
+    }
+  }
+}
