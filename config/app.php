@@ -179,6 +179,8 @@ return [
         App\Providers\ViewComposerServiceProvider::class,
 
         \Zombata\Core\ZombataCoreServiceProvider::class,
+        \Backend\Classes\ClassesServiceProvider::class,
+        \Backend\Batch\BatchServiceProvider::class,
         \Backend\Institute\InstituteServiceProvider::class,
 
     ],
