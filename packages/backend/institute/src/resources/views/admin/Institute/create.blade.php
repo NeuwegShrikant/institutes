@@ -39,3 +39,10 @@
     </div>
 
 @stop
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('.institute-menu').addClass('kt-menu__item--active');
+        });
+    </script>
+@stop

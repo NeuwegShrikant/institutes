@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-4">
-		{!! HTML::vtext('name', null, ['data-validation' => 'required']) !!}		
+		{!! HTML::vtext('name', null, ['label' => 'Institute Name', 'data-validation' => 'required']) !!}
 	</div>
 	<div class="col-4">
 		{!! HTML::vtext('owner_name', null, [ 'label' => 'Owner Name', 'data-validation' => 'required']) !!}
@@ -11,7 +11,7 @@
 </div>
 <div class="row">
 	<div class="col-4">
-		{!! HTML::vemail('email', null, ['data-validation' => 'email']) !!}		
+		{!! HTML::vemail('email', null, ['data-validation' => 'email']) !!}
 	</div>
 	<div class="col-4">
 		@if(isset($model))
@@ -22,12 +22,12 @@
 	</div>
 	<div class="col-4">
 		@if(isset($model))
-			{!! HTML::vimage('image', []) !!}
+			{!! HTML::vimage('image', ['label' => 'Logo']) !!}
 		@else
-			{!! HTML::vimage('image', []) !!}
+			{!! HTML::vimage('image', ['label' => 'Logo']) !!}
 		@endif
 	</div>
-	
+
 </div>
 <div class="row">
 	<div class="col-4">

@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     const SUPERADMIN = 1;
     const INSTITUTE = 2;
-    // const STUDENT = 3;
+    const TEACHER = 3;
 
 }

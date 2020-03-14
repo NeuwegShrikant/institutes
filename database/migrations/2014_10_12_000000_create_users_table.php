@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->boolean('is_enable')->nullable();
             $table->boolean('type')->nullable();
+            $table->unsignedBigInteger('parent_id')->default(0)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

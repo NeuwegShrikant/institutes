@@ -2,12 +2,12 @@
 
 @section('pageBar')
     <div class="kt-subheader__main">
-        <h3 class="kt-subheader__title"> Classes </h3>
+        <h3 class="kt-subheader__title"> Student </h3>
         <span class="kt-subheader__separator kt-hidden"></span>
         <div class="kt-subheader__breadcrumbs">
             <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
             <span class="kt-subheader__breadcrumbs-separator"></span>
-            <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Classes</span>
+            <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Student</span>
         </div>
     </div>
     <div class="kt-subheader__toolbar">
@@ -34,7 +34,7 @@
                 <thead>
                 <tr>
                     <th>S.No.</th>
-                    <th>Class</th>
+                    <th>Title</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -57,6 +57,10 @@
                                 </button>
                             @endif
 
+                            @if( checkAuth($permission, 'destroy') )
+                                <a href="{{route( $repository->routeDelete, $model->id)}}" class="btn-sm btn delete" > <i class="la la-trash"></i> </a>
+                            @endif
+
                         </td>
 
                     </tr>
@@ -68,11 +72,4 @@
         </div>
     </div>
 
-@stop
-@section('script')
-    <script>
-        $(document).ready(function () {
-            $('.classes-menu').addClass('kt-menu__item--active');
-        });
-    </script>
 @stop

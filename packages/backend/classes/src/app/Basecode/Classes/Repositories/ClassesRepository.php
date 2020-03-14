@@ -21,9 +21,17 @@ class ClassesRepository extends Repository {
     public $routeShow = 'admin.modules.classes.show';
     public $routeDelete = 'admin.modules.classes.destroy';
 
-    public $storeValidateRules = [];
+    public $storeValidateRules = [
+        'title' => 'required|unique:classes,title'
+    ];
     public $updateValidateRules = [];
 
     public $model = Classes::class;
+
+    public function save($attrs) {
+        $attrs['tag'] = str_slug(\request('title'), '_');
+        return parent::save($attrs);
+    }
+
 
 }

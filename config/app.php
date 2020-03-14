@@ -182,6 +182,8 @@ return [
         \Backend\Classes\ClassesServiceProvider::class,
         \Backend\Batch\BatchServiceProvider::class,
         \Backend\Institute\InstituteServiceProvider::class,
+        \Backend\Teacher\TeacherServiceProvider::class,
+        \Backend\Student\StudentServiceProvider::class,
 
     ],
 
