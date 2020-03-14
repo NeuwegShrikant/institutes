@@ -13,7 +13,7 @@
             <span class="kt-menu__link-text">Dashboard</span>
         </a>
     </li>
-
+    @if(isSuperAdmin())
     <li class="kt-menu__item institute-menu" aria-haspopup="true">
         <a href="{{ route('admin.modules.institutes.index') }}" class="kt-menu__link ">
             <span class="kt-menu__link-icon">
@@ -29,6 +29,7 @@
             <span class="kt-menu__link-text">Institutes</span>
         </a>
     </li>
+    @endif
     {{-- @yield('menu') --}}
 </ul>
 

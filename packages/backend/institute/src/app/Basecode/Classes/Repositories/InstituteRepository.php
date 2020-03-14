@@ -21,9 +21,35 @@ class InstituteRepository extends Repository {
     public $routeShow = 'admin.modules.institutes.show';
     public $routeDelete = 'admin.modules.institutes.destroy';
 
-    public $storeValidateRules = [];
+    public $storeValidateRules = [
+        'name' => 'required',
+    ];
     public $updateValidateRules = [];
 
     public $model = Institute::class;
 
+     public function save( $attrs ) {
+
+        $attrs = $this->getValueArray($attrs);
+        
+        if( $pass = request('password') ) {
+            $attrs['password'] = bcrypt($pass);
+        } elseif( array_key_exists('password', $attrs) ) {
+            unset($attrs['password']);
+        }
+
+        $model = new $this->model;
+        $model->fill($attrs);
+        $model->save();
+
+        $model->type = \App\User::INSTITUTE;
+        $model->save();
+        return $model;
+    }
+
+    public function getCollection($withFilters = true) {
+        $model = new $this->model;
+        $model = $model->where('type', \App\User::INSTITUTE);
+        return $model;
+    }
 }

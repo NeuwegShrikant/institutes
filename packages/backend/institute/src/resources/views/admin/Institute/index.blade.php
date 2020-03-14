@@ -13,11 +13,11 @@
     <div class="kt-subheader__toolbar">
         <div class="kt-subheader__wrapper">
         	@if( checkAuth($permission, 'create') )
-	            <button
-	                class="btn btn-label-primary btn-bold btn-sm btn-icon-h kt-margin-l-10 dataModel"
-	                data-href="{{ route( $repository->routeCreate ) }}"
-	                data-title="Add new"
-	            >Add New</button>
+	            <a
+	                class="btn btn-label-primary btn-bold btn-sm btn-icon-h kt-margin-l-10"
+	                href="{{ route( $repository->routeCreate ) }}"
+	                
+	            >Add New</a>
             @endif
         </div>
     </div>
@@ -34,7 +34,10 @@
                 <thead>
                 <tr>
                     <th>S.No.</th>
-                    <th>Title</th>
+                    <th>Institute Name</th>
+                    <th>Owner Name</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -42,8 +45,10 @@
                 @foreach( $collection as $index => $model )
                     <tr>
                         <td> {{ $index+1 }} </td>
-                        <td> {{ $model->title }} </td>
-
+                        <td> {{ $model->name }} </td>
+                        <td> {{ $model->owner_name }} </td>
+                        <td> {{ $model->email }} </td>
+                        <td> {{ $model->mobile_no }} </td>
                         <td>
 
                             @if( checkAuth($permission, 'edit') )
