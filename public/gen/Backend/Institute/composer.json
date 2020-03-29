@@ -1,0 +1,11 @@
+{
+    "name": "Backend/Institute",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Dev Dev",
+            "email": "dev@dev.com"
+        }
+    ],
+    "require": {}
+}

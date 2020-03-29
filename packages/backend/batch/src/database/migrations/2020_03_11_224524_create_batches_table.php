@@ -15,16 +15,14 @@ class CreateBatchesTable extends Migration
     {
         Schema::create('batches', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id'); // Institute ID
+            $table->unsignedBigInteger('teacher_id'); // teacher ID
+            $table->string('batch_id');
             $table->time('start_time');
             $table->time('end_time');
-            $table->string('class')->nullable();
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('title')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

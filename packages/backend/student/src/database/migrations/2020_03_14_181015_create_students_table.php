@@ -15,6 +15,10 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->date('dob');
+            $table->string('mobile_no')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

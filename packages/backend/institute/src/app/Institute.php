@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Institute extends Model
 {
-	protected $table = 'users'; 
+	protected $table = 'users';
+
     protected $fillable = [
     	'name',
     	'owner_name',
-    	'email', 
+    	'email',
     	'password',
     	'mobile_no',
     	'image',

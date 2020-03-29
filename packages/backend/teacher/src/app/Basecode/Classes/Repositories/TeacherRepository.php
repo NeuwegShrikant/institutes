@@ -40,7 +40,7 @@ class TeacherRepository extends Repository {
         $model->fill($attrs);
         $model->save();
 
-        $model->type = \App\User::INSTITUTE;
+        $model->type = \App\User::TEACHER;
         $model->parent_id = auth()->user()->id;
         $model->save();
         return $model;

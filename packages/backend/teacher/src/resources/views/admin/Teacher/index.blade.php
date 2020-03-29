@@ -34,8 +34,7 @@
                 <thead>
                 <tr>
                     <th>S.No.</th>
-                    <th>Institute Name</th>
-                    <th>Owner Name</th>
+                    <th>Teacher Name</th>
                     <th>Email</th>
                     <th>Mobile Number</th>
                     <th>Action</th>
@@ -46,7 +45,6 @@
                     <tr>
                         <td> {{ $index+1 }} </td>
                         <td> {{ $model->name }} </td>
-                        <td> {{ $model->owner_name }} </td>
                         <td> {{ $model->email }} </td>
                         <td> {{ $model->mobile_no }} </td>
                         <td>
@@ -77,4 +75,11 @@
         </div>
     </div>
 
+@stop
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('.teacher-menu').addClass('kt-menu__item--active');
+        });
+    </script>
 @stop
