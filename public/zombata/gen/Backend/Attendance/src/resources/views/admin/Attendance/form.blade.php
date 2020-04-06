@@ -1,1 +1,0 @@
-{!! HTML::vtext('title', null, ['data-validation' => 'required']) !!}
