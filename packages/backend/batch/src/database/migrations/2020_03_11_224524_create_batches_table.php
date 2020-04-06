@@ -21,6 +21,7 @@ class CreateBatchesTable extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->string('title')->nullable();
+            $table->string('subject')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

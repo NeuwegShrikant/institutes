@@ -184,7 +184,7 @@ return [
         \Backend\Institute\InstituteServiceProvider::class,
         \Backend\Teacher\TeacherServiceProvider::class,
         \Backend\Student\StudentServiceProvider::class,
-
+        \Backend\Subject\SubjectServiceProvider::class,
     ],
 
     /*

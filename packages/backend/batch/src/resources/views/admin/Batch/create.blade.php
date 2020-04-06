@@ -28,7 +28,7 @@
                             <i class="la la-arrow-left"></i>
                             Back
                         </a>
-                        <button name="save" type="submit" class="btn btn-primary active" value="1">
+                        <button type="submit" class="btn btn-primary active">
                             <i class="la la-save"></i>
                             Save
                         </button>

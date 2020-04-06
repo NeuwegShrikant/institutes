@@ -2,21 +2,22 @@
 
 @section('pageBar')
     <div class="kt-subheader__main">
-        <h3 class="kt-subheader__title"> Student </h3>
+        <h3 class="kt-subheader__title"> Subject </h3>
         <span class="kt-subheader__separator kt-hidden"></span>
         <div class="kt-subheader__breadcrumbs">
             <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
             <span class="kt-subheader__breadcrumbs-separator"></span>
-            <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Student</span>
+            <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Subject</span>
         </div>
     </div>
     <div class="kt-subheader__toolbar">
         <div class="kt-subheader__wrapper">
         	@if( checkAuth($permission, 'create') )
-	            <a
-	                class="btn btn-label-primary btn-bold btn-sm btn-icon-h kt-margin-l-10 "
-	                href="{{ route( $repository->routeCreate ) }}"
-	            >Add New</a>
+	            <button
+	                class="btn btn-label-primary btn-bold btn-sm btn-icon-h kt-margin-l-10 dataModel"
+	                data-href="{{ route( $repository->routeCreate ) }}"
+	                data-title="Add new"
+	            >Add New</button>
             @endif
         </div>
     </div>
@@ -33,9 +34,7 @@
                 <thead>
                 <tr>
                     <th>S.No.</th>
-                    <th>Name</th>
-                    <th>Mobile Number</th>
-                    <th>DOB</th>
+                    <th>Title</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -43,9 +42,8 @@
                 @foreach( $collection as $index => $model )
                     <tr>
                         <td> {{ $index+1 }} </td>
-                        <td> {{ $model->name }} </td>
-                        <td> {{ $model->mobile_no }} </td>
-                        <td> {{ getDateValue($model->dob) }} </td>
+                        <td> {{ $model->title }} </td>
+
                         <td>
 
                             @if( checkAuth($permission, 'edit') )
@@ -75,10 +73,4 @@
     </div>
 
 @stop
-@section('script')
-    <script>
-        $(document).ready(function () {
-            $('.student-menu').addClass('kt-menu__item--active');
-        });
-    </script>
-@stop
+

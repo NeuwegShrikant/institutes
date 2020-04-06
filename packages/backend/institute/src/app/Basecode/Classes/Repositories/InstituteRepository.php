@@ -31,7 +31,9 @@ class InstituteRepository extends Repository {
      public function save( $attrs ) {
 
         $attrs = $this->getValueArray($attrs);
-        
+
+        $attrs['parent_id'] = auth()->user()->id;
+
         if( $pass = request('password') ) {
             $attrs['password'] = bcrypt($pass);
         } elseif( array_key_exists('password', $attrs) ) {

@@ -410,7 +410,7 @@
             height: 70
         });
 
-        $('.datepicker').attr('readonly', 'readonly');
+        $('.datepicker, .timepicker').attr('readonly', 'readonly');
         $('.datepicker').datetimepicker({
             weekStart: 1,
             todayBtn:  1,
@@ -421,6 +421,12 @@
             forceParse: 0,
             format: 'dd-mm-yyyy',
             startDate : new Date()
+        });
+        $('.timepicker').timepicker({
+            autoclose: 1,
+            format: 'hh:mm',
+            dateFormat: ''
+
         });
         $('.yearpicker').datetimepicker({
             format: "yyyy",
@@ -614,7 +620,7 @@
             var type = $(this).data('type'); // modal-lg
             var tag = $(this).data('tag');
 
-            pageLoader(); 
+            pageLoader();
 
             $.get(url, function(res){
 

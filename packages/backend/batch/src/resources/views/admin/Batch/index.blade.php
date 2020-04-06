@@ -34,7 +34,9 @@
                 <thead>
                 <tr>
                     <th>S.No.</th>
-                    <th>Title</th>
+                    <th>Batch</th>
+                    <th>Subject</th>
+                    <th>Time</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -43,7 +45,8 @@
                     <tr>
                         <td> {{ $index+1 }} </td>
                         <td> {{ $model->title }} </td>
-
+                        <td> {{ optional($model->subjectRel)->title }} </td>
+                        <td> {{ getTimeValue($model->start_time) .' - '.getTimeValue($model->end_time) }} </td>
                         <td>
 
                             @if( checkAuth($permission, 'edit') )
@@ -53,6 +56,7 @@
                                     class="btn-sm btn dataModel"
                                     data-title="Edit"
                                     type="button"
+                                    data-type="lg"
                                 > <i class="la la-edit"></i>
                                 </button>
                             @endif

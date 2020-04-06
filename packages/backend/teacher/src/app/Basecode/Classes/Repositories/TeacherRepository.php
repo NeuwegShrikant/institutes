@@ -48,7 +48,11 @@ class TeacherRepository extends Repository {
 
     public function getCollection($withFilters = true) {
         $model = new $this->model;
+
+        $model = $model->where('parent_id', auth()->user()->id);
+
         $model = $model->where('type', \App\User::TEACHER);
+
         return $model;
     }
 

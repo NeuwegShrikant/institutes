@@ -26,4 +26,17 @@ class BatchRepository extends Repository {
 
     public $model = Batch::class;
 
+    public  function save($attrs)
+    {
+        $attrs = $this->getValueArray($attrs);
+
+        $attrs['user_id'] = auth()->user()->id;
+
+        $model = new $this->model;
+        $model->fill($attrs);
+        $model->save();
+
+        $model->batch_id = 'BATCH_O'.$model->id;
+        $model->save();
+    }
 }
