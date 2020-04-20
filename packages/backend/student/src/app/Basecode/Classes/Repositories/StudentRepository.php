@@ -26,4 +26,22 @@ class StudentRepository extends Repository {
 
     public $model = Student::class;
 
+    public  function save($attrs)
+    {
+        $attrs = $this->getValueArray($attrs);
+
+        $model = new $this->model;
+        $model->fill($attrs);
+        $model->save();
+
+        $batches = \request('batch_id');
+        $fee = \request('fee');
+
+        foreach($batches as $index => $batchId) {
+            $model->batchesRel()->sync([ $batchId => [
+                'fee' => $fee[$index]
+            ] ]);
+        }
+    }
+
 }

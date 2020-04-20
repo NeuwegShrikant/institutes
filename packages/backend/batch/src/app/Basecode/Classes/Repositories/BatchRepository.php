@@ -39,4 +39,12 @@ class BatchRepository extends Repository {
         $model->batch_id = 'BATCH_O'.$model->id;
         $model->save();
     }
+
+    public function getCollection($withFilters = true) {
+        $model = new $this->model;
+
+        $model = $model->where('user_id', auth()->user()->id);
+//        $model = $model->orderBy('created_at', 'desc');
+        return $model;
+    }
 }

@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use App\Basecode\Classes\Repositories\SubjectRepository;
 use App\Basecode\Classes\Repositories\TeacherRepository;
+use Backend\Batch\App\Basecode\Classes\Repositories\BatchRepository;
 use Illuminate\Support\ServiceProvider;
-use App\Basecode\Classes\Repositories\CategoryRepository;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -39,6 +39,18 @@ class ViewComposerServiceProvider extends ServiceProvider
             ]);
         });
 
+
+        view()->composer([
+            'ModuleViewAttendance::admin.Attendance.form',
+            'ModuleViewStudent::admin.Student.form'
+        ], function ($view) {
+
+            $batches = (new BatchRepository())->getCollection()->pluck('title', 'id')->toArray();
+
+            $view->with([
+                'batches' => $batches
+            ]);
+        });
 
     }
 }

@@ -185,6 +185,12 @@ return [
         \Backend\Teacher\TeacherServiceProvider::class,
         \Backend\Student\StudentServiceProvider::class,
         \Backend\Subject\SubjectServiceProvider::class,
+        \Backend\Fee\FeeServiceProvider::class,
+        \Backend\Attendance\AttendanceServiceProvider::class,
+        \Backend\Course\CourseServiceProvider::class,
+
+
+
     ],
 
     /*
