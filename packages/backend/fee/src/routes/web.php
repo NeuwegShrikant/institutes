@@ -25,5 +25,6 @@ Route::group([
     Route::put('fee/{id}', ['as' => 'admin.modules.fee.update', 'uses' => 'FeeController@update']);
     Route::get('fee/{id}/destroy', ['as' => 'admin.modules.fee.destroy', 'uses' => 'FeeController@destroy']);
 
+    Route::get('student-fee/list', ['as' => 'admin.modules.fee.studentList', 'uses' => 'FeeController@studentList']);
 });
 

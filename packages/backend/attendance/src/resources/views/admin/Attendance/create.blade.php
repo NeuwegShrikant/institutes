@@ -3,7 +3,7 @@
 
 @section('pageBar')
     <div class="kt-subheader__main">
-        <h3 class="kt-subheader__title"> Batch </h3>
+        <h3 class="kt-subheader__title"> Attendance </h3>
         <span class="kt-subheader__separator kt-hidden"></span>
         <div class="kt-subheader__breadcrumbs">
             <a href="{{ route('home') }}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>

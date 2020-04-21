@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Basecode\Classes\Repositories\SubjectRepository;
 use App\Basecode\Classes\Repositories\TeacherRepository;
+use App\Month;
 use Backend\Batch\App\Basecode\Classes\Repositories\BatchRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -42,7 +43,8 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         view()->composer([
             'ModuleViewAttendance::admin.Attendance.form',
-            'ModuleViewStudent::admin.Student.form'
+            'ModuleViewStudent::admin.Student.form',
+            'ModuleViewFee::admin.Fee.form'
         ], function ($view) {
 
             $batches = (new BatchRepository())->getCollection()->pluck('title', 'id')->toArray();
@@ -52,5 +54,14 @@ class ViewComposerServiceProvider extends ServiceProvider
             ]);
         });
 
+        view()->composer([
+            'ModuleViewFee::admin.Fee.form'
+        ], function ($view) {
+            $months = Month::pluck('title', 'tag')->toArray();
+
+            $view->with([
+               'months' => $months
+            ]);
+        });
     }
 }

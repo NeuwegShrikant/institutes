@@ -13,11 +13,11 @@
     <div class="kt-subheader__toolbar">
         <div class="kt-subheader__wrapper">
         	@if( checkAuth($permission, 'create') )
-	            <button
-	                class="btn btn-label-primary btn-bold btn-sm btn-icon-h kt-margin-l-10 dataModel"
-	                data-href="{{ route( $repository->routeCreate ) }}"
-	                data-title="Add new"
-	            >Add New</button>
+                <a
+                    class="btn btn-label-primary btn-bold btn-sm btn-icon-h kt-margin-l-10"
+                    href="{{ route( $repository->routeCreate ) }}"
+
+                >Add New</a>
             @endif
         </div>
     </div>
@@ -72,4 +72,13 @@
         </div>
     </div>
 
+@stop
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('.fee-menu').addClass('kt-menu__item--active');
+
+
+        });
+    </script>
 @stop

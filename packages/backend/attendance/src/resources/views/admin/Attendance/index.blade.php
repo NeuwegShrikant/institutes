@@ -73,3 +73,10 @@
     </div>
 
 @stop
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('.attendance-menu').addClass('kt-menu__item--active');
+        });
+    </script>
+@stop

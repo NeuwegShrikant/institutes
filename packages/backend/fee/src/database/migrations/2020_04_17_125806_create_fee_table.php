@@ -16,7 +16,9 @@ class CreateFeeTable extends Migration
         Schema::create('fee', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('batch_id');
             $table->string('month');
+            $table->foreign('batch_id')->references('id')->on('batches')->onDelete('cascade');
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
